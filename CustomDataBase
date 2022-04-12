@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataStructureAlgorithms
+{
+    internal class CustomDataBaase
+    {
+        public LinkedList<Student> dataBase;
+
+
+        public CustomDataBaase()
+        {
+            this.dataBase = new LinkedList<Student>();
+        }
+
+        public LinkedList<Student> GetDataBase
+        {
+            get { return dataBase; }
+        }
+
+        public void PopulateWithSampleStudent()
+        {
+            float[] score1 = { 20, 40, 50, 60 };
+            Student student1 = new Student("Islam", "Elshakhs", "4673", score1);
+            float[] score2 = { 50, 10, 20, 60 };
+            Student student2 = new Student("john", "cana", "7839", score2);
+            float[] score3 = { 70, 90, 80, 70 };
+            Student student3 = new Student("bradly", "coper", "02764", score3);
+            float[] score4 = { 24, 90, 70, 100 };
+            Student student4 = new Student("johnny", "deep", "943734", score4);
+            dataBase.AddFirst(student1);
+            dataBase.AddFirst(student2);
+            dataBase.AddFirst(student3);
+            dataBase.AddFirst(student4);
+        }
+
+        public void Add(Student student)
+        {
+            dataBase.AddLast(student);
+        }
+
+        public void GetElementByIndex(int index)
+        {
+            Console.WriteLine(dataBase.ElementAt(index).ToString());
+        }
+
+        public void RemoveByIndex(int index)
+        {
+            dataBase.Remove(dataBase.ElementAt(index));
+        }
+
+        public void RemoveFirst()
+        {
+            dataBase.RemoveFirst();
+        }
+        public void RemoveLast()
+        {
+            dataBase.RemoveLast();
+        }
+
+        public void DisplayList()
+        {
+            if (dataBase.Count != 0)
+            {
+                Console.WriteLine("These are the differents informations about your student :");
+                Console.WriteLine();
+                foreach (var student in dataBase)
+                {
+                    Console.WriteLine(student.ToString());
+                }
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("There is no student in the list ");
+            }
+        }
+    }
+}
